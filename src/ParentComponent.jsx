@@ -1,30 +1,37 @@
 import { useState } from "react";
+import { useMemo } from "react";
 import ChildComponent from "./ChildComponent";
-// import { useMemo } from "react";
 
-const ParentComponent = ()=>{
+const ParentComponent = () => {
     console.log('parent component rendered')
-    const [count,setCount] = useState(0);
-    const [memorizedData,setMemorizedData] = useState(0);
-    const changeCount = ()=>{
-        setCount(count+1)
+    const [count, setCount] = useState(0);
+    const [name,setName] = useState('');
+    // const [memorizedData,setMemorizedData] = useState(0);
+    const changeCount = () => {
+        setCount(count + 1)
     }
-    const changeMemorizedData = ()=>{
-        setMemorizedData(memorizedData+1)
+    const memorizedDataFun = useMemo(() => {
+        console.log('memorizedDataFun re-rendered')
+        return { name: name }
+    }, [name])
+
+    const changeMemorizedDataFun = ()=>{
+        console.log("update the memorizedDataFun")   
+        // setName(e.target.value)
     }
-    // const memorizedData = useMemo(()=>{
-    //     return "this is memorized value";
-    // },[])
-    // const memorizedData = {value:"this is memorized"}
+    
     return <>
-    <div style={{border: "1px solid red"}}>
-        <h1>Parent Component</h1>
-        <h1>count - {count}</h1>
-        <button onClick={changeCount}>increment count</button>
-        <button onClick={changeMemorizedData}>increment memorizedData</button>
-        <ChildComponent data={memorizedData}/>
-    </div>
+        <div style={{ border: "1px solid red" }}>
+            <div style={{padding:"20px"}}>
+                <h1>Parent Component</h1>
+                <h1>count - {count}</h1>
+                <input type="text"  value={name} placeholder="enter you name" />
+                <button onClick={changeMemorizedDataFun}>change name</button>
+                <button onClick={changeCount}>increment count</button>
+            </div>
+            <ChildComponent data={memorizedDataFun} />
+        </div>
     </>
 }
 
-export default ParentComponent;
+export default ParentComponent; 

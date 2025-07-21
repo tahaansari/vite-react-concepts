@@ -19,7 +19,7 @@ function App() {
   }
   return (
     <>
-      <UserContext.Provider value={{user, setUser}}>
+      {/* <UserContext.Provider value={{user, setUser}}>
         <Children>
           <h1>Component with children</h1>
         </Children>
@@ -30,8 +30,8 @@ function App() {
         ..........
         <br />
         <UseMemoExample/>
-        <ParentComponent/>
-      </UserContext.Provider>
+      </UserContext.Provider> */}
+      <ParentComponent/>
     </>
   )
 }
