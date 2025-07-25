@@ -5,9 +5,12 @@ import { useState } from 'react';
 import { useRef } from 'react';
 import UseMemoExample from "./useMemoExample"
 import ParentComponent from './ParentComponent';
+import LifeCycle from './LifeCycle';
+import Timer from './Timer';
 
 function App() {
   console.log('app component rendered')
+  const [toggle,setToggle] = useState(false)
   const [user, setUser] = useState("Taha Ansari");
   const [counterState,setCounterState] = useState(0)
   const changeCounterState = () => {
@@ -31,7 +34,11 @@ function App() {
         <br />
         <UseMemoExample/>
       </UserContext.Provider> */}
-      <ParentComponent/>
+      {/* <ParentComponent/> */}
+
+      {/* {!toggle && <LifeCycle/>}
+      <button onClick={()=>setToggle(!toggle)}>toggle component</button> */}
+      <Timer/>
     </>
   )
 }
