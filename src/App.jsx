@@ -7,6 +7,7 @@ import UseMemoExample from "./useMemoExample"
 import ParentComponent from './ParentComponent';
 import LifeCycle from './LifeCycle';
 import Timer from './Timer';
+import CounterUseReducer from "./CounterUseReducer"
 
 function App() {
   console.log('app component rendered')
@@ -38,7 +39,8 @@ function App() {
 
       {/* {!toggle && <LifeCycle/>}
       <button onClick={()=>setToggle(!toggle)}>toggle component</button> */}
-      <Timer/>
+      {/* <Timer/> */}
+      <CounterUseReducer/>
     </>
   )
 }

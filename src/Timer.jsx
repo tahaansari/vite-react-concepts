@@ -8,7 +8,8 @@ const Timer = ()=>{
     const intervalID = useRef();
     const startTimer = ()=>{
         console.log('start timer called')
-        intervalID.current = setInterval(()=> setTick(prev=>prev+1),1000)
+        clearInterval(intervalID.current)
+        intervalID.current = setInterval(()=>setTick(prev=>prev+1),1000)
     }
     const stopTimer = ()=>{
         console.log('stop timer called')
